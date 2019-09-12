@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+			Firebase Hello World
+		</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<button id="mobileClient">Mobile Client</button>
+		<button id="touchClient">Touch Table Client</button>
+		<button id="displayClient">Display client (not available)</button>
+	</body>
+
+	<!-- ================================================================================================================================================================ -->
+	<script>
+		mobileClient.addEventListener('click', () => {
+			window.location.href = "mobile.html";
+		});
+		touchClient.addEventListener('click', () => {
+			window.location.href = "touchTable.html";
+		});
+		displayClient.addEventListener('click', () => {
+			// window.location.href = "display.html";
+		});
+	</script>
+
+</html>

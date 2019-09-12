@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+			:D
+		</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+		</style>
+	</head>
+
+	<body style="touch-action:none">
+		<div id="game_field"></div>
+	</body>
+
+	<!-- ================================================================================================================================================================ -->
+	<!-- Firebase App is always required and must be first -->
+	<!-- This is an all in one -->
+	<!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script> -->
+	
+	<!-- Use these if you want to import sections. BUT, this next script is the core that is necessary -->
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+	<!-- Add additional services that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
+	<!-- Comment out (or don't include) services that you don't want to use -->
+	<!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script> -->
+
+	<!-- ================================================================================================================================================================ -->
+	<script src="js/firebase_connection.js"></script>
+	
+	<!-- ================================================================================================================================================================ -->
+	<script src="js/konva.min.js"></script>
+
+	<script src="js/globals.js"></script>
+
+	<script src="js/class_bullet.js"></script>
+	<script src="js/class_tank.js"></script>
+	<script src="js/func_controls.js"></script>
+
+	<script src="js/func_touchTable.js"></script>
+	<script src="js/main_mobile.js"></script>
+	
+	<script>
+		var isMobileClient = true;
+		firebase_connection.init(main_mobile);
+	</script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+			Test
+		</title>
+		<meta charset="utf-8" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+		</style>
+	</head>
+
+	<body style="touch-action:none">
+		<div id="containerDiv" style="width:100%;height:100%;border:1px solid black">
+				<h1>This div should not be zoomable by touch events</h1>
+				<h2>Resources</h2>
+				<h3>https://mdn.github.io/dom-examples/pointerevents/Pinch_zoom_gestures.html</h3>
+				<h3>http://jsbin.com/cuxopid/1/edit?html,js,output</h3>
+
+				<h2> Requirements:</h2>
+				<div><pre>
+---
+For mobile the below body style will prevent touch zoom and pull down to refresh
+< body style="touch-action:none"></body >
+
+But for desktop devices,
+	A div to react to pointer or touch events must handle the event to prevent zoom or refresh
+
+--- 
+				</pre></div>
+
+
+				How does this size?
+		</div>
+
+	</body>
+
+	<!-- ================================================================================================================================================================ -->
+	
+	<!-- ================================================================================================================================================================ -->
+	<script>
+
+
+		let container = document.getElementById("containerDiv");
+		// container.onpointerdown = noTouchZoom;
+		// container.onpointermove = noTouchZoom;
+		// container.onpointerup = noTouchZoom;
+		// container.onpointercancel = noTouchZoom;
+		// container.onpointerout = noTouchZoom;
+		// container.onpointerleave = noTouchZoom;
+
+		// container.ontouchstart = noTouchZoom;
+		// container.ontouchend = noTouchZoom;
+		// container.ontouchcancel = noTouchZoom;
+		// container.ontouchmove = noTouchZoom;
+
+		function noTouchZoom(e) {
+			console.log(e);
+		}
+		
+	</script>
+
+</html>

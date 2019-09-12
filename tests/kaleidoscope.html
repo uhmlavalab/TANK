@@ -1,0 +1,120 @@
+Konva Kaleidoscope Image Demoview raw
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="../js/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Kaleidoscope Image Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+
+    #slider {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <input id="slider" type="range" min="0" max="360" step="5" value="20">
+  <script>
+    function loadImages(sources, callback) {
+      var images = {};
+      var loadedImages = 0;
+      var numImages = 0;
+      for (var src in sources) {
+        numImages++;
+      }
+      for (var src in sources) {
+        images[src] = new Image();
+        images[src].onload = function () {
+          if (++loadedImages >= numImages) {
+            callback(images);
+          }
+        };
+        images[src].src = sources[src];
+      }
+		}
+		var stage;
+    function buildStage(images) {
+      stage = new Konva.Stage({
+        container: 'container',
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+
+			var layer = new Konva.Layer();
+			
+			var group = new Konva.Group({
+				x: 0,
+				y: 0
+			});
+
+      var lion = new Konva.Image({
+        image: images.lion,
+        x: 80,
+				y: 30,
+				width:100,
+				height:100,
+        draggable: true
+      });
+
+      lion.cache();
+      lion.filters([Konva.Filters.Kaleidoscope]);
+      lion.kaleidoscopePower(3);
+			
+
+      var lion2 = new Konva.Image({
+        image: images.lion,
+        x: 400,
+				y: 30,
+				width:100,
+				height:100
+      });
+
+      lion2.cache();
+      lion2.filters([Konva.Filters.Kaleidoscope]);
+      lion2.kaleidoscopePower(3);
+
+
+
+      group.add(lion);
+			group.add(lion2);
+			layer.add(group);
+			stage.add(layer);
+
+
+
+      var slider = document.getElementById('slider');
+      slider.oninput = function () {
+				lion.kaleidoscopeAngle(slider.value);
+				
+        lion2.kaleidoscopeAngle(slider.value);
+        // layer.batchDraw();
+			};
+			
+
+
+
+    }
+
+    var sources = {
+      lion: 'blueb.png'
+    };
+
+		loadImages(sources, buildStage);
+		
+		setInterval(() => { stage.draw(); }, 100);
+  </script>
+
+</body>
+
+</html>
